@@ -1,7 +1,7 @@
-import pkg from "./package.json";
+import pkg from './package.json';
 
 export default {
-  input: "src/index.js",
-  // external: ["immer", "react-redux"],
-  output: [{ file: pkg.main, format: "cjs" }],
+  input: 'src/index.js',
+  external: ['react', 'react-native'],
+  output: [{ file: pkg.main, format: 'cjs' }],
 };
