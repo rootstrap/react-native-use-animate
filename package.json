@@ -1,0 +1,51 @@
+{
+  "name": "@rootstrap/react-native-use-animate",
+  "version": "0.1.0",
+  "description": "React Native animations made simple",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src",
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "jest tests",
+    "build": "rollup -c",
+    "prepare": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootstrap/react-native-use-animate.git"
+  },
+  "keywords": [
+    "rootstrap",
+    "react"
+  ],
+  "author": "Agustina Chaer <agustina@rootstrap.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rootstrap/react-native-use-animate/issues"
+  },
+  "homepage": "https://github.com/rootstrap/react-native-use-animate#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "react": "^16.8.0",
+    "react-native": "^0.59.0",
+    "rollup": "^1.29.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-native": "^0.59.0"
+  }
+}
