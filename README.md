@@ -22,7 +22,7 @@ And that's it! No linking needed no matter which version of react-native you are
 
 ### Simple Animation
 
-// TODO: add gif
+<!-- TODO: add gif -->
 
 ```js
 import React from 'react';
@@ -54,7 +54,7 @@ const AnimatedBox = () => {
 
 ### Parallel Animations
 
-// TODO: add gif
+<!-- TODO: add gif -->
 
 ```js
 import React from 'react';
@@ -110,7 +110,7 @@ const AnimatedBox = () => {
 
 ### Sequenced Animations
 
-// TODO: add gif
+<!-- TODO: add gif -->
 
 ```js
 import React from 'react';
