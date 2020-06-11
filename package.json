@@ -23,7 +23,7 @@
     "react"
   ],
   "author": "Agustina Chaer <agustina@rootstrap.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rootstrap/react-native-use-animate/issues"
   },
