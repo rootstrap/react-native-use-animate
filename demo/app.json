@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "demo",
-    "slug": "demo",
+    "name": "rootstrap-react-native-use-animate-demo",
+    "slug": "rootstrap-react-native-use-animate-demo",
     "platforms": [
       "ios",
       "android",
@@ -24,7 +24,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "",
-    "githubUrl": "https://github.com/rootstrap/react-native-use-animate"
+    "description": "This is a demo project for the library @rootstrap/react-native-use-animate",
+    "githubUrl": "https://github.com/rootstrap/react-native-use-animate/demo"
   }
 }

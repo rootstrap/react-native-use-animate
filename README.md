@@ -6,6 +6,11 @@ Whether you are looking to get started with animations in React Native or you ne
 
 This library contains some simple animation hooks that will cover simple use cases and some complex ones as well.
 
+## Demo
+
+To showcase what the hooks can do, we created a demo project using expo and published it so you can easily check it out. All you have to do is download the [expo client app](https://expo.io/tools#client) and scan the following QR code:
+![](https://imgur.com/a/waD3E2p)
+
 ## Installation
 
 ```
