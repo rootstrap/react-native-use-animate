@@ -11,7 +11,6 @@ export default function App() {
     <View style={styles.container}>
       <ParallelAnimatedBox />
       <SequenceAnimatedBox />
-      {/* <ParallelSequenceAnimatedBox /> */}
     </View>
   );
 }
