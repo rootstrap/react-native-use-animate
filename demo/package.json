@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@rootstrap/react-native-use-animate": "^0.1.0",
+    "@rootstrap/react-native-use-animate": "^0.1.1",
     "expo": "~37.0.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
