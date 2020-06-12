@@ -10,7 +10,7 @@ import styles, { BOX_SIZE } from './styles';
 
 const ParallelAnimatedBox = () => {
   const firstValues = {
-    duration: 1000,
+    duration: 2000,
     initialX: 0,
     finalX: WIDTH - BOX_SIZE,
     initialY: 0,

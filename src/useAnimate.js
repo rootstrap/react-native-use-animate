@@ -1,6 +1,24 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { Animated } from 'react-native';
 
+/**
+ * @function useAnimate
+ * @param {number} fromValue - The value from which the animation will start
+ * @param {number} toValue - The value to which the animation should end
+ * @param {boolean} bounce - True if the animation should return to its initial state
+ * @param {number} iterations - The amount of times the animation should run,
+ * -1 if you want to be an infinite loop
+ * @param {number} duration - The time it takes the value to go from fromValue to toValue
+ *  (or back to its initial state if bounce is true)
+ * @param {string} useNativeDriver - useNativeDriver - check Animated API for reference
+ * @param {boolean} animate - false if this animation is being used inside a parallel
+ *  or sequence animation
+ * @param {function} callback - The method it should call after the animation has
+ *  ended (in case animate is false then this won't be executed,
+ * it should be passed as part of the Parallel's or sequence's callback)
+ * @param {ref} referenceValue - In case you want to reuse an animated value you
+ * can pass it as referenceValue
+ */
 const useAnimate = ({
   fromValue = 0,
   toValue = 1,
@@ -10,10 +28,12 @@ const useAnimate = ({
   useNativeDriver = false,
   animate = true,
   callback,
+  referenceValue,
 }) => {
-  const animatedValue = useRef(new Animated.Value(fromValue)).current;
+  const animatedValue =
+    referenceValue || useRef(new Animated.Value(fromValue)).current;
   const baseConfig = {
-    duration,
+    duration: bounce ? duration / 2 : duration,
     useNativeDriver,
   };
 
@@ -44,13 +64,13 @@ const useAnimate = ({
   );
 
   const animation =
-    iterations === 1 || callback
+    iterations === 1 || iterations === 0 || callback
       ? sequenceAnimation
       : Animated.loop(sequenceAnimation, { iterations });
 
   const startAnimating = useCallback(() => {
     animation.start(() => {
-      callback && callback();
+      callback && callback({ animation, animatedValue });
     });
   }, [animation, callback]);
 
@@ -58,7 +78,7 @@ const useAnimate = ({
     animate && startAnimating && startAnimating();
   }, [fromValue, toValue, bounce, duration, animate, startAnimating]);
 
-  return { animation, interpolate, animatedValue };
+  return { animation, interpolate, animatedValue, callback };
 };
 
 export default useAnimate;

@@ -1139,10 +1139,10 @@
     wcwidth "^1.0.1"
     ws "^1.1.0"
 
-"@rootstrap/react-native-use-animate@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@rootstrap/react-native-use-animate/-/react-native-use-animate-0.1.0.tgz#6abffb18e2beac0f287ed342c1e50f0bd6115bc2"
-  integrity sha512-4dcO6UpYmo+8PGWCe6clqhL9Rv8+9uE8XiHcjfU9oBX6QLxsszwt+7gwmQPrEKyghE3H3BCHgBYiO7rFuM1LNg==
+"@rootstrap/react-native-use-animate@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@rootstrap/react-native-use-animate/-/react-native-use-animate-0.1.2.tgz#fb635e3feb2ddb61d91daff3aa6123609e9b324d"
+  integrity sha512-s2xTLiKNN7MrPLZFibC80Q2caBKRhns/zQV66Z2HB8g84fzUCyc5WXhSDkwJENx7fI9EozWTDxtzg5yJi5FdHg==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
