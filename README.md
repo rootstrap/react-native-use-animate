@@ -9,7 +9,8 @@ This library contains some simple animation hooks that will cover simple use cas
 ## Demo
 
 To showcase what the hooks can do, we created a demo project using expo and published it so you can easily check it out. All you have to do is download the [expo client app](https://expo.io/tools#client) and scan the following QR code:
-![](https://imgur.com/a/waD3E2p)
+
+![](https://user-images.githubusercontent.com/9297073/84525964-e1c28800-acb2-11ea-9396-bc2d107d4711.png)
 
 ## Installation
 
