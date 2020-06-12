@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 });
 
 const AnimatedBox = () => {
-  const animateX = useAnimate({
+  const animatedX = useAnimate({
     fromValue: 0,
     toValue: 100,
     duration: 1000,
@@ -73,17 +73,18 @@ const styles = StyleSheet.create({
 });
 
 const AnimatedBox = () => {
-  const animateOpacity = useAnimate({
+  const animatedOpacity = useAnimate({
     animate: false,
     bounce: true,
   });
 
   const animatedRotation = useAnimate({
     bounce: true,
+    animate: false,
   });
 
   useAnimateParallel({
-    animations: [animateOpacity, animateRotation],
+    animations: [animatedOpacity, animatedRotation],
     iterations: -1,
     duration: 1000,
   });
@@ -93,7 +94,7 @@ const AnimatedBox = () => {
       style={[
         styles.box,
         {
-          opacity: animateOpacity.animatedValue,
+          opacity: animatedOpacity.animatedValue,
           transform: [
             {
               rotate: animatedRotation.interpolate({
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
 });
 
 const AnimatedBox = () => {
-  const animateX = useAnimate({
+  const animatedX = useAnimate({
     fromValue: 0,
     toValue: 200,
     animate: false,
@@ -139,10 +140,11 @@ const AnimatedBox = () => {
     fromValue: 0,
     toValue: 200,
     bounce: true,
+    animate: false,
   });
 
   useAnimateSequence({
-    animations: [animateX, animatedY],
+    animations: [animatedX, animatedY],
     iterations: -1,
     duration: 1000,
   });
