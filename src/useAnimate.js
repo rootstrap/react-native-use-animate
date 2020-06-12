@@ -10,14 +10,14 @@ import { Animated } from 'react-native';
  * -1 if you want to be an infinite loop
  * @param {number} duration - The time it takes the value to go from fromValue to toValue
  *  (or back to its initial state if bounce is true)
- * @param {string} useNativeDriver - useNativeDriver
- * @param {boolean} animate - In case this animation will be used for a parallel
- *  or sequence animation then it should be false
- * @param {function} callback - The method it should call after the animation is
+ * @param {string} useNativeDriver - useNativeDriver - check Animated API for reference
+ * @param {boolean} animate - false if this animation is being used inside a parallel
+ *  or sequence animation
+ * @param {function} callback - The method it should call after the animation has
  *  ended (in case animate is false then this won't be executed,
  * it should be passed as part of the Parallel's or sequence's callback)
- * @param {ref} referenceValue - In case you want to reuse an animation you
- * can pass its animatedValue as referenceValue
+ * @param {ref} referenceValue - In case you want to reuse an animated value you
+ * can pass it as referenceValue
  */
 const useAnimate = ({
   fromValue = 0,
