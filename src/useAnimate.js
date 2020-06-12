@@ -10,8 +10,10 @@ const useAnimate = ({
   useNativeDriver = false,
   animate = true,
   callback,
+  initialValue,
 }) => {
-  const animatedValue = useRef(new Animated.Value(fromValue)).current;
+  const animatedValue =
+    initialValue || useRef(new Animated.Value(fromValue)).current;
   const baseConfig = {
     duration,
     useNativeDriver,
@@ -50,7 +52,7 @@ const useAnimate = ({
 
   const startAnimating = useCallback(() => {
     animation.start(() => {
-      callback && callback();
+      callback && callback({ animation, animatedValue });
     });
   }, [animation, callback]);
 
@@ -58,7 +60,7 @@ const useAnimate = ({
     animate && startAnimating && startAnimating();
   }, [fromValue, toValue, bounce, duration, animate, startAnimating]);
 
-  return { animation, interpolate, animatedValue };
+  return { animation, interpolate, animatedValue, callback };
 };
 
 export default useAnimate;
