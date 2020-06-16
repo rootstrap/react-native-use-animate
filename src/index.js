@@ -1,4 +1,5 @@
 import useAnimate from './useAnimate';
-import { useAnimateParallel, useAnimateSequence } from './useAnimateStructure';
+import useAnimateParallel from './useAnimateParallel';
+import useAnimateSequence from './useAnimateSequence';
 
 export { useAnimate, useAnimateParallel, useAnimateSequence };
