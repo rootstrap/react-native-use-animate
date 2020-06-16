@@ -17,18 +17,16 @@ const useAnimateParallel = ({
   animate = true,
   callback = () => {},
 }) => {
-  const startAnimatingParallel = useCallback(({ callback: nextAnimation }) => {
+  const startAnimatingParallel = useCallback((nextAnimation = () => {}) => {
     let animationsEnded = 0;
     for (const i in [(1).iterations]) {
       animations.forEach(({ startAnimating }) => {
-        startAnimating({
-          callback: () => {
-            animationsEnded = animationsEnded + 1;
-            if (animationsEnded === animations.length) {
-              nextAnimation && nextAnimation();
-              callback();
-            }
-          },
+        startAnimating(() => {
+          animationsEnded = animationsEnded + 1;
+          if (animationsEnded === animations.length) {
+            nextAnimation && nextAnimation();
+            callback();
+          }
         });
       });
     }
@@ -41,7 +39,7 @@ const useAnimateParallel = ({
   };
 
   useEffect(() => {
-    animate && startAnimatingParallel({ callback: () => {} });
+    animate && startAnimatingParallel();
   }, [animate]);
 
   return { startAnimating: startAnimatingParallel, reset: resetAnimations };

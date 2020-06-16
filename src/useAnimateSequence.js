@@ -22,7 +22,7 @@ const animateInSequence = ({
       });
     }
   };
-  animations[current].startAnimating({ callback });
+  animations[current].startAnimating(callback);
 };
 
 /**
@@ -67,7 +67,7 @@ const useAnimateSequence = ({
     });
   };
 
-  const startAnimatingSequence = useCallback(() => {
+  const startAnimatingSequence = useCallback((nextAnimation = () => {}) => {
     if (iterations === 1 || iterations === 0) {
       sequenceIteration();
     } else if (iterations === -1) {
@@ -82,6 +82,7 @@ const useAnimateSequence = ({
         sequenceIteration({ iterationCallback: callback });
       }
     }
+    nextAnimation && nextAnimation();
     callback();
   }, []);
 

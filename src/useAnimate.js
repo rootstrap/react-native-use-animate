@@ -84,7 +84,7 @@ const useAnimate = ({
   }, [animation]);
 
   const startAnimating = useCallback(
-    ({ callback: nextAnimation }) => {
+    (nextAnimation) => {
       animation.reset();
 
       const callbackAnimation = () => {
@@ -104,7 +104,7 @@ const useAnimate = ({
   );
 
   useEffect(() => {
-    animate && startAnimating({ callback: () => {} });
+    animate && startAnimating();
   }, [fromValue, toValue, bounce, duration, animate, startAnimating, reset]);
 
   return { interpolate, animatedValue, startAnimating, reset };
