@@ -10,6 +10,9 @@ import { Animated } from 'react-native';
  * -1 if you want to be an infinite loop
  * @param {number} duration - The time it takes the value to go from fromValue to toValue
  *  (or back to its initial state if bounce is true)
+ * @param {number} delay - The number of miliseconds that it should pass before start animating
+ * @param {function} easing - The `Easing` module has tons of pre-defined
+ * curves, or you can use your own function
  * @param {string} useNativeDriver - useNativeDriver - check Animated API for reference
  * @param {boolean} animate - false if this animation is being used inside a parallel
  *  or sequence animation
@@ -18,6 +21,8 @@ import { Animated } from 'react-native';
  * it should be passed as part of the Parallel's or sequence's callback)
  * @param {ref} referenceValue - In case you want to reuse an animated value you
  * can pass it as referenceValue
+ * @param {boolean} isInteraction - Whether or not this animation creates an
+ * "interaction handle" on the InteractionManager. Default true.
  */
 const useAnimate = ({
   fromValue = 0,
@@ -25,20 +30,26 @@ const useAnimate = ({
   bounce = false,
   iterations = 1,
   duration = 800,
+  delay = 0,
+  easing,
   useNativeDriver = false,
   animate = true,
   callback,
   referenceValue,
+  isInteraction = true,
 }) => {
   const animatedValue =
     referenceValue || useRef(new Animated.Value(fromValue)).current;
   const baseConfig = {
+    easing,
+    isInteraction,
     duration: bounce ? duration / 2 : duration,
     useNativeDriver,
   };
 
   const sequence = [
     Animated.timing(animatedValue, {
+      delay,
       toValue,
       ...baseConfig,
     }),
@@ -68,17 +79,35 @@ const useAnimate = ({
       ? sequenceAnimation
       : Animated.loop(sequenceAnimation, { iterations });
 
-  const startAnimating = useCallback(() => {
-    animation.start(() => {
-      callback && callback({ animation, animatedValue });
-    });
-  }, [animation, callback]);
+  const reset = useCallback(() => {
+    animation.reset();
+  }, [animation]);
+
+  const startAnimating = useCallback(
+    (nextAnimation) => {
+      animation.reset();
+
+      const callbackAnimation = () => {
+        callback && callback({ animation, animatedValue });
+        nextAnimation && nextAnimation();
+      };
+
+      if (delay) {
+        Animated.sequence([Animated.delay(delay), animation]).start(
+          callbackAnimation,
+        );
+      } else {
+        animation.start(callbackAnimation);
+      }
+    },
+    [animation, callback],
+  );
 
   useEffect(() => {
-    animate && startAnimating && startAnimating();
-  }, [fromValue, toValue, bounce, duration, animate, startAnimating]);
+    animate && startAnimating();
+  }, [fromValue, toValue, bounce, duration, animate, startAnimating, reset]);
 
-  return { animation, interpolate, animatedValue, callback };
+  return { interpolate, animatedValue, startAnimating, reset };
 };
 
 export default useAnimate;
