@@ -7,11 +7,13 @@ Whether you are looking to get started with animations in React Native or you ne
 This library contains some simple animation hooks that will cover simple use cases and some complex ones as well.
 
 ## Demo
+
 ![demo-animation](https://user-images.githubusercontent.com/9297073/84530954-269ded00-acba-11ea-94f2-5edca89faa1d.gif)
 
 To test it out yourself you can clone this repo and go into the `demo` folder, then run `expo start` and open the app on a simulator or device.
 
 #### Just for android
+
 Since the demo is an expo project, we also have the app published on Expo. All you have to do is download the [expo client app](https://expo.io/tools#client) and scan the following QR code:
 
 ![](https://user-images.githubusercontent.com/9297073/84525964-e1c28800-acb2-11ea-9396-bc2d107d4711.png)
@@ -174,6 +176,10 @@ const AnimatedBox = () => {
   );
 };
 ```
+
+## Contributing
+
+If you have an idea that could make this library better we would love to hear it. Please take a look at our [Contributing Guidelines](CONTRIBUTING.md) to get to know the rules and how to get started with your contribution.
 
 ## License
 
