@@ -20,7 +20,10 @@
   },
   "keywords": [
     "rootstrap",
-    "react"
+    "react",
+    "react-native",
+    "animations",
+    "hooks"
   ],
   "author": "Agustina Chaer <agustina@rootstrap.com>",
   "license": "MIT",
