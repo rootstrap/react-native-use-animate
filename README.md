@@ -1,5 +1,7 @@
 # @rootstrap/react-native-use-animate
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/a878b4be647cd2a9582c/maintainability)](https://codeclimate.com/github/rootstrap/react-native-use-animate/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a878b4be647cd2a9582c/test_coverage)](https://codeclimate.com/github/rootstrap/react-native-use-animate/test_coverage)
+
 React Native animations made simple.
 
 Whether you are looking to get started with animations in React Native or you need to add a simple animation to your app and are looking for a simple and light weight option, this is the library for you.
