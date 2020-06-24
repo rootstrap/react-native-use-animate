@@ -1,0 +1,31 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build-and-lint:
+    environment:
+      CC_TEST_REPORTER_ID: c28bccab6fc77fe5daeb74cbcaac6f8fcc3d12a8db8ff984e8c8f9627fa2fbcc
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+      - run:
+          name: Run linter
+          command: npm run lint
+      - run:
+          name: Run tests
+          command: yarn test:cover
+      - run:
+          name: Setup Code Climate test reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+            ./cc-test-reporter after-build
+workflows:
+  build-and-lint:
+    jobs:
+      - build-and-lint
