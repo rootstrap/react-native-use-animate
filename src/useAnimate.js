@@ -66,10 +66,11 @@ const useAnimate = ({
   const sequenceAnimation = Animated.sequence(sequence);
 
   const interpolate = useCallback(
-    ({ inputRange, outputRange }) =>
+    ({ inputRange, outputRange, ...config }) =>
       animatedValue.interpolate({
         inputRange: inputRange || [fromValue, toValue],
-        outputRange,
+        outputRange: outputRange || [fromValue, toValue],
+        ...config,
       }),
     [animatedValue, fromValue, toValue],
   );
